@@ -9,10 +9,11 @@ import UIKit
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     let MAX_ARRAY_COLUMN = 3
-    let PICKER_VIEW_COLUMN = 1
+    let PICKER_VIEW_COLUMN = 2 // 열의 갯수를 증가
     let PICKER_VIEW_HEIGHT: CGFloat = 80
     var imageArray = [UIImage?]()
     var imageFileName = ["1.png", "2.png", "3.png"]
+    var imageFileNameSe = ["4.png", "5.png", "6.png"]
     
 
     @IBOutlet var pickerImage: UIPickerView!
@@ -56,8 +57,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         // piker view 의 제목을 label 에 저장
-        lbImageFileName.text = imageFileName[row]
-        imageView.image = imageArray[row]
+        // 첫 번째 picker 에서는 text만 변경
+        // 두 번째 picker 에서는 image만 변경
+        if (component == 0) {
+            lbImageFileName.text = imageFileName[row]
+        }
+        else {
+            imageView.image = imageArray[row]
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
