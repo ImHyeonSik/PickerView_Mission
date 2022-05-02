@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     let MAX_ARRAY_COLUMN = 3
     let PICKER_VIEW_COLUMN = 2 // 열의 갯수를 증가
     let PICKER_VIEW_HEIGHT: CGFloat = 80
